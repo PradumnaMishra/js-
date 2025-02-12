@@ -24,4 +24,21 @@ console.log(typeof arr)  //would give object
 console.log(typeof obj)  //would give object
 console.log(typeof func) //would give function also called object function
 
+/****Stack and Heap****/
+// Primitve-> stack(a copy is given)  &  Non-primitve-> heap(a reference is given)
+const name1= "Pradumna"
+let name2= name1
+console.log(name2) //a copy of value stored in stack is given to name
+name2= "Mishra"
+console.log(name1)
+console.log(name2) //only name2 changed coz a copy of the value had been given to the name2 but not the actual value
+
+let emp1= {
+    empName: "Prad",
+    empId: 2341
+}
+let emp2= emp1;
+emp2.empName= "darp"
+console.log(emp2.empName)
+console.log(emp1.empName) //this too changed because value in heap is refernced(actual value and not a copy) and it has been changed by one of the accessors
 
