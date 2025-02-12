@@ -1,4 +1,4 @@
-let marks= undefined
+let marks= true
 
 console.log(typeof marks)
 console.log(typeof(marks)) //as an object
@@ -13,4 +13,12 @@ console.log(typeof valInNumber);
 // undefined => NaN
 // boolean --- true => 1, false => 0
 
+/************Operations***********/
+
+console.log("1" + 2)
+console.log(1 + "2")
+console.log(1 + 2 + "3") //takes 1+2=3 
+console.log("1" + 2 + 3)
+console.log(1 + "2" + 3)
+console.log(+true) // increments the boolean value
 
