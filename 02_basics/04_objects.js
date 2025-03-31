@@ -43,7 +43,26 @@ const web=[{
 }]
 console.log(web[1].name);
 
+/****** Object Destructuring, API and JSON  *******/
+const data= {
+    naam: "Stereo22",
+    id: "2182"
+}
+console.log(data.naam); //we can access element this way
+const {naam}= data      //and by destructuring too
+console.log(naam);
+const {naam: name}=data //can also change name as we want(alias)
+console.log(name);
 
+//A JSON(Javascript Object Notation) is a human readable lihtweight format to transport(b/w app and web) and store data. It's usually an object but sometimes it could be an array too
+{
+    "name": "Prad",
+    "age": 23
+}
+//in JSON format the key is usually a string but value could be anything
+
+//to get any random API go to randomuser.me
+// and to study that API go to JSON formatter
 
 
 
