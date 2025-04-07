@@ -55,10 +55,10 @@ const {naam: name}=data //can also change name as we want(alias)
 console.log(name);
 
 //A JSON(Javascript Object Notation) is a human readable lihtweight format to transport(b/w app and web) and store data. It's usually an object but sometimes it could be an array too
-{
-    "name": "Prad",
-    "age": 23
-}
+// {
+//     "name": "Prad",
+//     "age": 23
+// }
 //in JSON format the key is usually a string but value could be anything
 
 //to get any random API go to randomuser.me
