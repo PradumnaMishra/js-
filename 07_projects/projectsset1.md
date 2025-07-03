@@ -10,7 +10,7 @@
  const button = document.querySelectorAll('.button');
 const body = document.querySelector('body');
 console.log(button);
-button.forEach(function button(button) {
+button.forEach(function (button) {
   console.log(button);
   button.addEventListener('mouseover', function (e) {
     console.log(e);
@@ -56,4 +56,10 @@ form.addEventListener('submit', (e) => {
 
  ## project 3
  ```javascript
+ const clock = document.querySelector('#clock')
+// we need this time to be changing every second, thus use a method called "setInterval()". Don't think of using something so huge as "cron job" for such a small task. It takes a function and the interval(always in milliseconds)
+setInterval(function(){
+  let date= new Date();
+  clock.innerText= date.toLocaleTimeString(); 
+}, 1000)
  ```
