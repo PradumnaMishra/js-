@@ -63,3 +63,91 @@ setInterval(function(){
   clock.innerText= date.toLocaleTimeString(); 
 }, 1000)
  ```
+ ## project 4
+ ``` javascript
+ let randomNum= parseInt(Math.random()*10+1);
+
+const submit= document.querySelector('#subt')
+const input= document.querySelector('#guessField');
+const guessSlot= document.querySelector('.guesses');
+const remaining= document.querySelector('.lastResult');
+const lowHigh= document.querySelector('.lowOrHi');
+const startOver= document.querySelector('.resultParas');
+const p= document.createElement('p');
+
+let prevGuess= [];
+let chances=0;
+
+let playGame= true;
+if(playGame){
+  submit.addEventListener('click', function(e){
+    e.preventDefault();
+    let guess= parseInt(input.value);
+    validateGuess(guess);
+  })
+}
+
+function validateGuess(guess){
+  if(isNaN(guess)){
+    alert("Enter a valid number");
+  }
+  else if(guess<1){
+    alert("Entered value is less than 1")
+  }
+  else if(guess>100){
+    alert("Entered value is more than 100")
+  }
+  else{
+    prevGuess.push(guess);
+    if(chances===10){
+      displayGuesses(guess);
+      displayMessage("Game is over and the random number was: ",randomNum);
+    }else{
+      displayGuesses(guess);
+      checkGuess(guess);
+    }
+  }
+}
+function checkGuess(guess){
+  if(guess==randomNum){
+    displayMessage("You guessed it right")
+    endGame();
+  }
+  else if(guess<randomNum) displayMessage("Guess is too low")
+  else displayMessage("Guess is too high")
+}
+function displayGuesses(guess){
+  input.value= '';
+  guessSlot.innerHTML+= `${guess}, `;
+  chances++;
+  remaining.innerHTML= `${10-chances}`;
+}
+function displayMessage(message){
+  lowHigh.innerHTML= `<h2>${message}</h2>`
+}
+function endGame(){
+  input.value= '';
+  input.setAttribute('disabled', '');
+  p.classList.add('button')
+  p.innerHTML= `<h2 id="newGame"> Start Over </h2>`;
+  startOver.appendChild(p);
+  playGame=false;
+  newGame()
+}
+function newGame(){
+  const button = document.querySelector('#newGame');
+  button.addEventListener('click', function(e){
+    randomNum= parseInt(Math.random()*10+1);
+    prevGuess= [];
+    chances= 0;
+    guessSlot.innerHTML='';
+    remaining.innerHTML= `${10-chances}`;
+    input.removeAttribute('disabled');
+    startOver.removeChild(p);
+    playGame= true;
+
+
+  })
+}
+
+ ```
