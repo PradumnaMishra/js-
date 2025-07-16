@@ -1,0 +1,32 @@
+<!-- all about setTimeout and clearTimeout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is Pradumna's codeSpace</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // setTimeout(handler/callbackFunction, timeout)
+
+    // setTimeout(() => {document.querySelector('h1').innerHTML= 'this is not a codespace'
+    // }, 2000);
+
+    //could either write the function like above or put a reference of a fucntion like below
+
+    const changeH1= function(){
+        document.querySelector('h1').innerHTML= "this is not a codespace"
+    }
+    const settingChange= setTimeout(changeH1, 2000);
+
+    //now to clear it we will use clearTimeout but it needs referencing of the setTimeout it is being used for
+    // thus we put the above method in a variable
+    document.getElementById('stop').addEventListener('click', function(){
+        clearTimeout(settingChange);
+    })
+    
+</script>
