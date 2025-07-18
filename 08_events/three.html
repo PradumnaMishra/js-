@@ -1,0 +1,28 @@
+<!-- all about setInterval and clearInterval -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is a h1</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //it can take one more argument
+    const nameAndDate= function(str){
+        console.log(`my name is ${str} and date is ${Date.now()}`);
+    }
+    let startNaming;
+    document.getElementById('start').addEventListener('click',function(){
+         startNaming= setInterval(nameAndDate,2000,"prad")
+    })
+    document.getElementById('stop').addEventListener('click',function(){
+        clearInterval(startNaming)
+    })
+
+</script>
+</html>
