@@ -64,6 +64,7 @@ setInterval(function(){
 }, 1000)
  ```
  ## project 4
+
  ``` javascript
  let randomNum= parseInt(Math.random()*10+1);
 
@@ -149,5 +150,54 @@ function newGame(){
 
   })
 }
+
+ ```
+ ## project 5
+ ```javascript
+ window.addEventListener('keydown', function(e){
+  insert.innerHTML= `
+  <div>
+  <table>
+  <tr>
+    <th>Key</th>
+    <th>KeyCode</th>
+    <th>Code</th>
+  </tr>
+  <tr>
+    <td>${e.key==' '? 'space': e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+</table>
+  </div
+  `
+})
+
+ ```
+
+ ## project 6
+ ```javascript
+ let hex = '123456789ABCDEFG';
+const randomColour = function () {
+  let colour = '#';
+  for (let i = 0; i < 6; i++) {
+    colour += hex[Math.ceil(Math.random() * 10)];
+  }
+  return colour;
+};
+let startColor;
+const changeColor = function () {
+  document.body.style.backgroundColor = randomColour();
+};
+document.getElementById('start').addEventListener('click', function () {
+  if (!startColor)
+    //in case the startColor is null, then we can't get reference to it. it's a practice for making industry level project
+    startColor = setInterval(changeColor, 1000);
+});
+
+document.getElementById('stop').addEventListener('click', () => {
+  clearInterval(startColor);
+  startColor = null; //in order to flush out extra overwritten stuff
+});
 
  ```
